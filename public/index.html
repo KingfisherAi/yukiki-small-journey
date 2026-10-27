@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1e7">
+  <meta name="description" content="3つの小さな選択から、今のあなたが気になる土の国との関わり方を見つける。はらいどゆききの、約1分の小さな旅。">
+  <title>土の国への小さな旅｜はらいどゆきき</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="journey.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <a class="brand" href="#intro" id="home" aria-label="はらいどゆきき 小さな旅の最初へ"><span class="brand-mark" aria-hidden="true">ゆ</span><span>はらいどゆきき<small>いつもの暮らしから、土の国へ。</small></span></a>
+    <a class="text-link header-link" href="https://claude.ai/artifact/4QH8LJdmEHccxG7zX9aN8J" target="_blank" rel="noopener noreferrer">全体の案内を見る <span aria-hidden="true">↗</span><span class="sr-only">（新しいタブ）</span></a>
+  </header>
+  <main id="main">
+    <section id="intro" class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="eyebrow">はらいどゆききの、ちいさな寄り道</p>
+        <h1 id="intro-title" tabindex="-1">あなたは、<br>どんなふうに<br><em>土の国</em>を旅する？</h1>
+        <p class="intro-description">たがやす。つくる。そっと見守る。<br>関わり方は、ひとつじゃない。<br>気になる景色を選んで、<br class="mobile-break">あなたの「旅のしおり」をつくろう。</p>
+        <button class="primary start" id="start" type="button">小さな旅に出る <span aria-hidden="true">↗</span></button>
+        <p class="quiet timing">約1分 / 3つの選択 / 登録なし</p>
+      </div>
+      <div class="intro-art">
+        <div class="art-topline"><span>A LITTLE JOURNEY</span><span>01 — 03</span></div>
+        <figure class="landscape"><img src="assets/countryside.jpg" alt="山あいの田畑を小道がつなぎ、歩く人、育てる人、見守る人がいる版画風の風景" fetchpriority="high" width="1200" height="800"><figcaption>これは、これから出会う景色のイメージ。</figcaption></figure>
+        <div class="ticket"><span class="ticket-hole" aria-hidden="true"></span><div><small>行き先</small><strong>いつもと、ちょっと違う休日。</strong></div><span class="ticket-drawing" aria-hidden="true">✳</span></div>
+      </div>
+      <div class="intro-bottom"><span class="edition">YUKIKI FIELD NOTES — No. 001</span><p>正解も、決まったタイプもありません。<br>今日の気分で、選んでみてください。</p></div>
+      <details class="about"><summary>そもそも「はらいどゆきき」って？</summary><div><p>和歌山県橋本市・御幸辻の田畑を舞台に、都市の暮らしと農の営みを行き来する構想です。モノ・人手・知恵・お金を持ち寄り、無理のない関わり方で場所を育てていくことを目指しています。</p><p>この小さな旅は、その関わり方を見つけるための入口。結果には、主催者の案内を短くまとめた紹介と、原文へのリンクが出てきます。</p><a href="https://claude.ai/artifact/4QH8LJdmEHccxG7zX9aN8J" target="_blank" rel="noopener noreferrer">主催者の全体案内を読む ↗<span class="sr-only">（新しいタブ）</span></a></div></details>
+    </section>
+
+    <section id="play" class="play" hidden aria-labelledby="question-title">
+      <aside class="journey-side">
+        <p class="eyebrow">土の国への小さな旅</p>
+        <h2 class="side-title">気になるほうへ、<br>ひとつずつ。</h2>
+        <div class="route-art" aria-hidden="true"><img src="assets/countryside.jpg" alt="" width="1200" height="800"><div class="route-badge"><span id="route-number">01</span><small>寄り道の途中</small></div></div>
+        <ol id="route" class="route" aria-label="旅の進み具合"></ol>
+        <div class="pocket"><p>旅のポケット</p><ul id="pocket-list" aria-label="これまでに選んだもの"></ul></div>
+      </aside>
+      <div class="question-area">
+        <div class="question-top"><span class="eyebrow" id="chapter"></span><span class="step-count" id="step-count"></span></div>
+        <h2 id="question-title" tabindex="-1"></h2>
+        <p class="question-note" id="question-note"></p>
+        <fieldset id="options" class="options"><legend class="sr-only">気になるものを1つ選んでください</legend></fieldset>
+        <div class="play-actions"><button class="back-button" id="back" type="button">← ひとつ戻る</button><button class="primary" id="next" type="button" disabled>次の寄り道へ <span aria-hidden="true">→</span></button></div>
+        <p class="selection-hint quiet" id="selection-hint" role="status">気になるものを1つ選ぶと、先へ進めます。</p>
+      </div>
+    </section>
+
+    <section id="result" class="result" hidden aria-labelledby="result-title">
+      <div class="result-intro"><p class="eyebrow">3つの寄り道から、見つかったこと</p><h2 id="result-title" tabindex="-1">あなたの旅のしおり</h2><p>今の気分に似合う、ひとつの入口です。</p></div>
+      <div class="result-layout">
+        <article class="postcard" aria-labelledby="postcard-title">
+          <div class="postcard-top"><span>YUKIKI / TRAVEL NOTE</span><span class="stamp" aria-hidden="true">土の国<br><b>ゆきき</b><br>寄り道印</span></div>
+          <img class="postcard-art" src="assets/countryside.jpg" alt="小道が田畑と人をつなぐ、土の国の想像図" width="1200" height="800">
+          <div class="postcard-body"><p class="quiet" id="result-overline">今、あなたが惹かれるのは</p><h3 id="postcard-title"></h3><p id="result-description"></p><div class="souvenirs"><span>旅のポケットに入ったもの</span><ul id="result-items"></ul></div><p class="postcard-foot">今日の気分は、今日だけのもの。<br>また違う道が気になっても、もちろん。</p></div>
+        </article>
+        <div class="result-next">
+          <p class="eyebrow">この先の、一歩</p><h3 id="next-title"></h3><p id="next-description"></p>
+          <section class="source-summary" aria-labelledby="source-title"><p class="eyebrow">主催者の案内を、ひと足先に</p><h3 id="source-title"></h3><ul id="source-points"></ul><p class="source-date">公開案内の要約 · 2026年10月27日確認</p></section>
+          <a class="primary result-cta" id="result-link" href="https://claude.ai/artifact/4QH8LJdmEHccxG7zX9aN8J" target="_blank" rel="noopener noreferrer"></a>
+          <a class="secondary result-cta result-cta-sub" href="https://claude.ai/artifact/B6So6ZD4TPJiREJGYdLGXW" target="_blank" rel="noopener noreferrer">関わってみたいと伝える（ゆききファン） ↗<span class="sr-only">（新しいタブ）</span></a>
+          <p class="quiet">案内は新しいタブで開きます。<br>ここでの選択は、申込みや支援の約束にはなりません。<br>活動日ごとの予定と参加の案内は、「ゆききファン」で連絡先を登録した方に運営からお送りします。</p>
+          <div class="other-paths"><h3>ほかの道も、のぞいてみる</h3><p class="quiet">ひとつに決めなくて大丈夫。</p><div id="other-links"></div></div>
+          <div class="result-tools"><button id="copy" class="secondary" type="button">しおりの文をコピー</button><button id="restart" class="back-button" type="button">もう一度、旅する ↺</button></div>
+          <p id="copy-status" class="quiet" role="status"></p>
+          <label id="copy-fallback" hidden>コピーできない場合は、この文を選択してください<textarea id="copy-text" readonly rows="6"></textarea></label>
+        </div>
+      </div>
+    </section>
+    <noscript><p class="noscript">この小さな旅にはJavaScriptを使います。<a href="https://claude.ai/artifact/4QH8LJdmEHccxG7zX9aN8J">活動の全体案内はこちらから読めます。</a></p></noscript>
+  </main>
+  <footer class="site-footer"><span>はらいどゆきき · 和歌山県橋本市 御幸辻</span><span>入口の試作 / 回答は保存・送信しません</span></footer>
+</body>
+</html>

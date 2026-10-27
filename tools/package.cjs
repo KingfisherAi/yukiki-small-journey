@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const directory = __dirname;
+const read = name => fs.readFileSync(path.join(directory, name), 'utf8');
+let html = read('index.html');
+html = html.replace('<link rel="stylesheet" href="style.css">', () => `<style>${read('style.css')}</style>`);
+html = html.replace(/\s*<script defer src="(?:journey|app)\.js"><\/script>/g, '');
+html = html.replaceAll('src="assets/countryside.png"', 'data-illustration="true"');
+const illustration = 'data:image/png;base64,' + fs.readFileSync(path.join(directory, 'assets/countryside.png')).toString('base64');
+const imageScript = `(() => { const image = ${JSON.stringify(illustration)}; document.querySelectorAll('[data-illustration]').forEach(element => { element.src = image; }); })();`;
+html = html.replace('</body>', () => `<script>${imageScript}</script>\n<script>${read('journey.js')}</script>\n<script>${read('app.js')}</script>\n</body>`);
+fs.writeFileSync(path.join(directory, 'yukiki-journey.html'), html);
+console.log('Standalone file ready: yukiki-journey.html');
