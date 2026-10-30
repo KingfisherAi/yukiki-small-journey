@@ -10,4 +10,4 @@
 /* 「一緒に、場所を育てる。」が狭い画面で1文字だけ折り返すのを防ぐ */
 @media(max-width:420px){h1{font-size:29px}}
 /* 現地の写真 */
-.field-photo,.about-photo{margin:36px 0 0}.field-photo img,.about-photo img{display:block;width:100%;height:auto}.about-photo img{max-width:420px}.field-photo img{aspect-ratio:21/9;object-fit:cover}.field-photo figcaption,.about-photo figcaption{font-size:11px;color:var(--muted);margin-top:10px}
+.field-photo,.about-photo{margin:36px 0 0}.field-photo img,.about-photo img{display:block;width:100%;height:auto}.about-photo img{max-width:520px}.field-photo img{aspect-ratio:21/9;object-fit:cover}.field-photo figcaption,.about-photo figcaption{font-size:11px;color:var(--muted);margin-top:10px}
